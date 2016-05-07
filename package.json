@@ -1,0 +1,29 @@
+{
+  "name": "gulp-musheng",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "concurrent-transform": "^1.0.0",
+    "copy": "^0.2.0",
+    "del": "^2.2.0",
+    "express": "^4.13.4",
+    "gulp": "^3.9.1",
+    "gulp-download-stream": "0.0.13",
+    "gulp-image-resize": "^0.8.0",
+    "gulp-rename": "^1.2.2",
+    "http-post": "^0.1.1",
+    "later": "^1.2.0",
+    "moment": "^2.13.0",
+    "multer": "^1.1.0",
+    "os": "^0.1.1",
+    "q": "^1.4.1",
+    "xlsx": "^0.8.0"
+  }
+}

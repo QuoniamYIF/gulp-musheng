@@ -1,0 +1,9 @@
+node_modules
+pic*
+tempic
+file*
+*.txt
+model.js
+change.js
+down.js
+testAPI.html
