@@ -1,61 +1,61 @@
 
 var    gulp = require('gulp');
-          http = require('http'),
-         post = require('http-post'),
-             fs = require('fs'),
-download = require("gulp-download-stream"),
+       http = require('http'),
+       post = require('http-post'),
+         fs = require('fs'),
+   download = require("gulp-download-stream"),
 imageResize = require('gulp-image-resize'),
    parallel = require("concurrent-transform"),
-   os = require('os'),
-   rename = require('gulp-rename'),
-   del = require('del'),
-   child = require('child_process'),
-   copy = require('copy'),
-   Q = require('q'),
-   moment = require('moment'),
-   XLSX = require('xlsx'),
-   later = require('later'),
-   express = require('express'),
-   bodyParser = require('body-parser'),
-   multer = require('multer'),
-   util  = require('util'),
-   spawn = require('child_process').spawn;
+         os = require('os'),
+     rename = require('gulp-rename'),
+        del = require('del'),
+      child = require('child_process'),
+       copy = require('copy'),
+          Q = require('q'),
+     moment = require('moment'),
+       XLSX = require('xlsx'),
+      later = require('later'),
+    express = require('express'),
+ bodyParser = require('body-parser'),
+     multer = require('multer'),
+      util  = require('util'),
+      spawn = require('child_process').spawn;
    // gu = spawn('gulp');
 
-var jsondata,
-        urlArray = new Array(),
-        start = '2015-01-01 00:00:00',
-        end = '2016-04-22 00:00:00',
-        duringTime = {
-          starttime: start,
-          endtime: end
-        }
+// var jsondata,
+//         urlArray = new Array(),
+//         start = '2015-01-01 00:00:00',
+//         end = '2016-04-22 00:00:00',
+//         duringTime = {
+//           starttime: start,
+//           endtime: end
+//         }
 
-var app = express();
+// var app = express();
 
-app.use(express.static('public'));
-app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-// app.use(multer()); // for parsing multipart/form-data
+// app.use(express.static('public'));
+// app.use(bodyParser.json()); // for parsing application/json
+// app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+// // app.use(multer()); // for parsing multipart/form-data
 
-app.get('/', function (req, res) {
-  // res.send('Hello World!');
-});
-app.post("/", function(req, res){
-  res.json(req.body);
-  duringTime.starttime = req.body.starttime;
-  duringTime.endtime = req.body.endtime;
-  console.log('post了数据');
-  child.exec('rm -rf tempic');
-  child.exec('pkill gulp');
-  gulp.start('default');
-});
+// app.get('/', function (req, res) {
+//   // res.send('Hello World!');
+// });
+// app.post("/", function(req, res){
+//   res.json(req.body);
+//   duringTime.starttime = req.body.starttime;
+//   duringTime.endtime = req.body.endtime;
+//   console.log('post了数据');
+//   child.exec('rm -rf tempic');
+//   child.exec('pkill gulp');
+//   gulp.start('default');
+// });
 
 
-var server = app.listen(3000, function (req, res){
-  console.log("程序正在运行......");
-  // gulp.start('default');
-});
+// var server = app.listen(3000, function (req, res){
+//   console.log("程序正在运行......");
+//   // gulp.start('default');
+// });
 
 gulp.task('post', function(){
   console.log("我被执行了");
@@ -81,7 +81,7 @@ gulp.task('post', function(){
   }
 });
 
-gulp.task("getJson",  ['post'], function(callback){
+gulp.task("getJson", function(callback){
   post("http://119.254.111.193/index.php/Home/API/readOrderByTime", duringTime, function(res){
       var body = "";
       res.setEncoding('utf8');
